@@ -1,0 +1,44 @@
+1. first run the perspective.py file
+2. get the google cloud api keys to run the visiontextcoordinate.py file
+3. 
+
+To achieve this behavior where the first five prompts are skipped if the program has been run before, you can implement a simple check or flag system. Here's a Python code example that demonstrates how you can do this:
+
+```python
+import os
+
+# Check if a flag file exists
+if os.path.exists("flag.txt"):
+    # If the flag file exists, skip the first five prompts
+    print("Program has been run before.")
+else:
+    # If the flag file doesn't exist, run the first five prompts
+    print("Please insert map image file name:")
+    map_image_filename = input()
+
+    print("Please insert directory image file name:")
+    directory_image_filename = input()
+
+    print("Choose map image processing method:")
+    map_processing_method = input()
+
+    print("Are you satisfied with the processed map image? (Y/N):")
+    map_satisfaction = input()
+
+    print("Double click to select 4 quadrangle points on the image in a clock-wise manner")
+    # Your code for processing quadrangle points
+
+    # Create a flag file to indicate that the program has been run
+    with open("flag.txt", "w") as flag_file:
+        flag_file.write("Program has been run before.")
+
+# Continue with the rest of your prompts and program logic
+print("Please input your starting location (nearest shop to you):")
+starting_location = input()
+
+# Rest of your program logic
+```
+
+In this code, we check for the existence of a "flag.txt" file at the beginning of your program. If the flag file exists, it means the program has been run before, and it skips the first five prompts. If the flag file doesn't exist, it runs the first five prompts and then creates the flag file to indicate that the program has been run.
+
+You can customize the flag file name and location as needed for your project. This approach ensures that the prompts are only shown the first time the program is run, and subsequent runs skip those prompts.
