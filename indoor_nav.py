@@ -151,11 +151,8 @@ def routing():
     from google.cloud import vision
 
     st.sidebar.header("Routing Process")
-    #desktop
-    #os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/Marcus/AppData/Local/Google/Cloud SDK/apikey.json"
 
-    #laptop
-    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/LEONARD EGURIASE/Downloads/awesome-ridge-396020-a6f2b94302c0.json"
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="C:/Users/leovi/Documents/Developer/Codes/School Project/Templates/indoor-map-reconstruction-and-navigation-master/awesome-ridge-396020-a6f2b94302c0.json"
 
 
 
@@ -730,11 +727,11 @@ def routing():
         path_pixels_c = color_img.load()
         
         # set distance and heuristic types
-        distance = manhattan
-        heuristic = manhattan
+        # distance = manhattan
+        # heuristic = manhattan
         
-        # distance = squared_euclidean
-        # heuristic = squared_euclidean
+        distance = squared_euclidean
+        heuristic = squared_euclidean
         
         # obtain A Star shortest path
         path = AStar(start_arr, goal_arr, neighbours_8, distance, heuristic)
